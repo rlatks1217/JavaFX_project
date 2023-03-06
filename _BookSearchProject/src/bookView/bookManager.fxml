@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookView.BookManager">
+   <bottom>
+      <FlowPane alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="787.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
+               <children>
+                  <TableView fx:id="tableView2" blendMode="DIFFERENCE" layoutX="-2.0" layoutY="7.0" prefHeight="200.0" prefWidth="1092.0">
+                    <columns>
+                        <TableColumn fx:id="userId2" prefWidth="110.0" text="UserID" />
+                      <TableColumn fx:id="rentalDate2" prefWidth="110.0" text="Rentaldate" />
+                      <TableColumn fx:id="bisbn2" prefWidth="110.0" text="ISBN" />
+                        <TableColumn fx:id="btitle2" prefWidth="110.0" text="TITLE" />
+                        <TableColumn fx:id="bprice2" prefWidth="110.0" text="PRICE" />
+                        <TableColumn fx:id="bauthor2" prefWidth="110.0" text="AUTHOR" />
+                        <TableColumn fx:id="bpage2" prefWidth="110.0" text="PAGE" />
+                        <TableColumn fx:id="bpublisher2" prefWidth="110.0" text="PUBLISHER" />
+                        <TableColumn fx:id="btranslator2" prefWidth="110.0" text="TRANSLATOR" />
+                        <TableColumn fx:id="returnDate2" prefWidth="110.0" text="Deadline" />
+                        <TableColumn fx:id="status2" prefWidth="110.0" text="STATUS" />
+                        <TableColumn fx:id="rentalDate21" prefWidth="110.0" text="Rentaldate" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="785.0">
+               <children>
+                  <TableView fx:id="tableView1" blendMode="DIFFERENCE" layoutX="-2.0" layoutY="7.0" prefHeight="200.0" prefWidth="1092.0">
+                     <columns>
+                        <TableColumn fx:id="userId1" prefWidth="110.0" text="UserID" />
+                        <TableColumn fx:id="rentalDate1" prefWidth="110.0" text="Rental date" />
+                        <TableColumn fx:id="bisbn1" prefWidth="110.0" text="ISBN" />
+                        <TableColumn fx:id="btitle1" prefWidth="110.0" text="TITLE" />
+                        <TableColumn fx:id="bprice1" prefWidth="110.0" text="PRICE" />
+                        <TableColumn fx:id="bauthor1" prefWidth="110.0" text="AUTHOR" />
+                        <TableColumn fx:id="bpage1" prefWidth="110.0" text="PAGE" />
+                        <TableColumn fx:id="bpublisher1" prefWidth="110.0" text="PUBLISHER" />
+                        <TableColumn fx:id="btranslator1" prefWidth="110.0" text="TRANSLATOR" />
+                        <TableColumn fx:id="returnDate1" prefWidth="110.0" text="Deadline" />
+                        <TableColumn fx:id="status1" prefWidth="110.0" text="STATUS" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+   <top>
+      <GridPane prefHeight="79.0" prefWidth="787.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="57.0" prefWidth="256.0" text="BookManager">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="home" blendMode="DIFFERENCE" mnemonicParsing="false" onAction="#gohome" prefHeight="56.0" prefWidth="145.0" text="Home" GridPane.columnIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font></Button>
+         </children>
+      </GridPane>
+   </top>
+</BorderPane>

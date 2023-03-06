@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookView.ChangePw">
+   <bottom>
+      <FlowPane alignment="CENTER" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="changeBtn" mnemonicParsing="false" onAction="#changePw" prefHeight="64.0" prefWidth="143.0" text="Change">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </FlowPane>
+   </bottom>
+   <center>
+      <GridPane prefHeight="271.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="196.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="10.0" prefWidth="404.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <BorderPane.margin>
+            <Insets bottom="100.0" left="50.0" right="50.0" top="70.0" />
+         </BorderPane.margin>
+         <children>
+            <Label prefHeight="21.0" prefWidth="230.0" text=" password : ">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="changePw" prefHeight="100.0" prefWidth="354.0" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </center>
+   <top>
+      <Label prefHeight="68.0" prefWidth="316.0" text="Change Password" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+</BorderPane>

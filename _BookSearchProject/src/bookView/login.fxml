@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookView.Login">
+  <bottom>
+    <FlowPane prefHeight="0.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+  </bottom>
+  <center>
+    <GridPane prefHeight="153.0" prefWidth="476.0" BorderPane.alignment="CENTER">
+      <children>
+        <Label text="ID">
+          <font>
+            <Font size="20.0" fx:id="x1" />
+          </font>
+          <GridPane.margin>
+            <Insets left="50.0" />
+          </GridPane.margin>
+        </Label>
+        <Label font="$x1" text="Password" GridPane.rowIndex="1">
+          <GridPane.margin>
+            <Insets left="5.0" />
+          </GridPane.margin>
+        </Label>
+        <TextField fx:id="textId" prefHeight="65.0" prefWidth="396.0" GridPane.columnIndex="1" />
+            <PasswordField fx:id="textPw" onAction="#login" prefHeight="64.0" prefWidth="388.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="161.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="470.0" minWidth="10.0" prefWidth="439.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <BorderPane.margin>
+        <Insets bottom="120.0" top="20.0" />
+      </BorderPane.margin>
+    </GridPane>
+  </center>
+  <right>
+    <Pane prefHeight="293.0" prefWidth="102.0" BorderPane.alignment="CENTER">
+      <children>
+        <Button fx:id="loginBtn" layoutX="9.0" layoutY="32.0" mnemonicParsing="false" onAction="#login" prefHeight="55.0" prefWidth="85.0" text="Login">
+          <font>
+            <Font size="17.0" fx:id="x2" />
+          </font>
+        </Button>
+        <Button fx:id="moveSignUp" font="$x2" layoutX="9.0" layoutY="104.0" mnemonicParsing="false" onAction="#moveSignUp" prefHeight="55.0" prefWidth="85.0" text="SignUp" />
+      </children>
+    </Pane>
+  </right>
+  <top>
+    <Label onMouseClicked="#gohome" text="Library System" BorderPane.alignment="CENTER">
+      <font>
+        <Font size="48.0" />
+      </font>
+      <BorderPane.margin>
+        <Insets top="50.0" />
+      </BorderPane.margin>
+    </Label>
+  </top>
+</BorderPane>

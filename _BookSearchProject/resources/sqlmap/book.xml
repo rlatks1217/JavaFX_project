@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="library.book">
+	<select id="selectAllBook" parameterType="HashMap"
+		resultType="book">
+		SELECT a.bisbn, a.Btitle, a.bprice, a.bauthor,
+		IFNULL(b.rentalDate, '')
+		AS rentalDate FROM book a
+		LEFT JOIN (SELECT *
+		FROM rental WHERE id = #{id}) b
+		ON a.bisbn = b.bisbn
+	</select>
+
+	<select id="selectByTitle" parameterType="HashMap"
+		resultType="book">
+		SELECT a.bisbn, a.Btitle, a.bprice, a.bauthor,
+		IFNULL(b.rentalDate, '') AS rentalDate
+		FROM book a
+		LEFT JOIN
+		(SELECT *
+		FROM rental WHERE id = #{id}) b
+		ON a.bisbn = b.bisbn
+		WHERE a.btitle
+		LIKE #{keyword}
+	</select>
+
+	<select id="getUserRentBook" parameterType="String"
+		resultType="book">
+		SELECT b.rentalDate, a.bisbn, a.btitle, a.bprice,
+		a.bauthor,
+		a.bpage, a.bpublisher, a.btranslator
+		FROM book a
+		INNER JOIN
+		(SELECT * FROM rental
+		WHERE id = #{fieldId}) b
+		ON a.bisbn = b.bisbn
+	</select>
+
+	<select id="checkRent" parameterType="HashMap"
+		resultType="String">
+		SELECT bisbn FROM rental
+		WHERE id = #{id} AND bisbn =
+		#{bisbn}
+	</select>
+
+	<insert id="rentBook" parameterType="HashMap">
+		INSERT INTO rental VALUES
+		(#{rentalDate}, #{id}, #{bisbn}, #{btitle})
+	</insert>
+
+	<delete id="returnBookDelete">
+		DELETE FROM rental
+		WHERE bisbn = #{bisbn}
+	</delete>
+
+	<select id="deleteBookSelect" parameterType="String"
+		resultType="String">
+		SELECT bisbn AS rs FROM rental
+		WHERE bisbn = #{bisbn}
+	</select>
+
+	<delete id="deleteBookrental" parameterType="String">
+		DELETE FROM rental
+		WHERE bisbn = #{bisbn}
+	</delete>
+
+	<delete id="deleteBook" parameterType="String">
+		DELETE FROM book
+		WHERE
+		bisbn = #{bisbn}
+	</delete>
+
+	<select id="offlineSelectBookLike" parameterType="String"
+		resultType="book">
+		SELECT bisbn, btitle, bprice, bauthor FROM book
+		WHERE btitle
+		LIKE #{keyword}
+	</select>
+
+	<select id="offlineSelectBook" parameterType="String"
+		resultType="book">
+		SELECT bisbn, btitle, bprice, bauthor FROM book
+	</select>
+
+	<select id="selectBookDetail" parameterType="String"
+		resultType="book">
+		SELECT a.bisbn, a.btitle, a.bprice, a.bauthor,
+		a.bpage,
+		a.bpublisher, a.btranslator, a.bimgbase64,
+		IFNULL(b.rentalDate, '')
+		rentalDate FROM (SELECT * FROM book
+		WHERE btitle = #{bookTitle}) a
+		LEFT
+		JOIN
+		(SELECT * FROM rental) b
+		ON a.bisbn = b.bisbn
+	</select>
+
+	<select id="registerBookSelect" parameterType="String"
+		resultType="String">
+		SELECT bisbn FROM book WHERE bisbn = #{bisbn}
+	</select>
+
+	<insert id="registerBookInsert" parameterType="book">
+		INSERT INTO
+		book(bisbn, btitle, bdate, bpage, bprice, bauthor,
+		btranslator,
+		bpublisher) VALUES
+		(#{bisbn}, #{btitle}, #{bdate}, ${bpage}, ${bprice},
+		#{bauthor},
+		#{btranslator}, #{bpublisher})
+	</insert>
+
+	<select id="getUserRentBookAll" resultType="book">
+		SELECT b.id,
+		b.rentalDate, a.bisbn, a.btitle, a.bprice, a.bauthor,
+		a.bpage,
+		a.bpublisher, a.btranslator
+		FROM book a
+		INNER JOIN
+		rental b
+		ON a.bisbn =
+		b.bisbn
+	</select>
+
+	<select id="getUSerselect" parameterType="String" resultType="user">
+		SELECT * FROM user
+		WHERE name LIKE #{name}
+	</select>
+
+</mapper>
